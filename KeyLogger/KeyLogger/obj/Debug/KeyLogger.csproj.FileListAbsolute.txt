@@ -1,0 +1,9 @@
+C:\Users\gail6\Desktop\KeyLogger\KeyLogger\KeyLogger\KeyLogger\bin\Debug\KeyLogger.exe.config
+C:\Users\gail6\Desktop\KeyLogger\KeyLogger\KeyLogger\KeyLogger\bin\Debug\KeyLogger.exe
+C:\Users\gail6\Desktop\KeyLogger\KeyLogger\KeyLogger\KeyLogger\bin\Debug\KeyLogger.pdb
+C:\Users\gail6\Desktop\KeyLogger\KeyLogger\KeyLogger\KeyLogger\obj\Debug\KeyLogger.csprojAssemblyReference.cache
+C:\Users\gail6\Desktop\KeyLogger\KeyLogger\KeyLogger\KeyLogger\obj\Debug\KeyLogger.Properties.Resources.resources
+C:\Users\gail6\Desktop\KeyLogger\KeyLogger\KeyLogger\KeyLogger\obj\Debug\KeyLogger.csproj.GenerateResource.cache
+C:\Users\gail6\Desktop\KeyLogger\KeyLogger\KeyLogger\KeyLogger\obj\Debug\KeyLogger.csproj.CoreCompileInputs.cache
+C:\Users\gail6\Desktop\KeyLogger\KeyLogger\KeyLogger\KeyLogger\obj\Debug\KeyLogger.exe
+C:\Users\gail6\Desktop\KeyLogger\KeyLogger\KeyLogger\KeyLogger\obj\Debug\KeyLogger.pdb
